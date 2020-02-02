@@ -1,0 +1,32 @@
+/* 
+.navbar-default {
+    background-color: #FF5733;
+    border-color: transparent;
+}
+
+
+#sidebar{
+    background-color: #FF5733;
+    border-color: transparent;
+}
+ */
+
+/* Cell numbers */
+.prompt.input_prompt {
+   display: none;
+}
+
+/* # Cell sizing */
+.cell.border-box-sizing.code_cell.rendered{
+        width: 75%;
+
+}
+
+/* # output execution */
+.prompt.output_prompt{
+   display: none;
+}
+
+.output_text.output_subarea.output_execute_result{
+   display: none;
+}
