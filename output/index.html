@@ -32,13 +32,19 @@
 
             <script>
                     function copyFunction() {
-                      const copyText = document.getElementById("myInput").textContent;
-                      const textArea = document.createElement('textarea');
-                      textArea.textContent = copyText;
-                      textArea.select();
-                      document.execCommand("copy");
+                      var copyText = document.getElementById("myInput").textContent;
+                        
+                        var dummy = document.createElement("textarea");
+                        // to avoid breaking orgain page when copying more words
+                        // cant copy when adding below this code
+                        // dummy.style.display = 'none'
+                        document.body.appendChild(dummy);
+                        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+                        dummy.value = copyText;
+                        dummy.select();
+                        document.execCommand("copy");
+                        document.body.removeChild(dummy);
                     }
-
                     document.getElementById('button').addEventListener('click', copyFunction);
             </script>
 
@@ -46,7 +52,7 @@
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
             <a href="/" class="navbar-brand">
 stack            </a>
@@ -65,32 +71,112 @@ stack            </a>
 <!-- End Banner -->
 
 <!-- Content Container -->
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2"id="sidebar_left">
+        <div class="col-md-2"id="sidebar_left">
+            <aside>
+            </aside>
         </div>
         
-        <div class="col-sm-8">
+        <div class="col-md-7">
             <article>
                 <h2><a href="/list-comprehension.html">Explaning Python's List Comprehension</a></h2>
-                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Key Ideas</p>
-<ul>
-<li>List Comprehensions can be used to create more condensed for loops</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+                <div class="summary"><textarea class="codecopy" id="myInput" text="
+ 
+
+
+
+food_list = ['Whole wheat bread', 'pita pockets', 'English muffins', 'Whole-grain',
+             'flour tortillas']
+
+
+
+filtered_food_list = []
+for food in food_list:
+    if 'Whole' in food:
+        filtered_food_list.append(food)
+print(filtered_food_list)
+
+
+
+filtered_food_list = [food for food in food_list if 'Whole' in food]
+filtered_food_list
+
+
+
+ 
+
+
+
+food_dictionary = {1: 'Whole',
+2: 'Whole Wheat',
+3: 'Bread'}
+
+filtered_food_dict = {}
+for key,value in food_dictionary.items():
+    if 'Whole' in value:
+        filtered_food_dict[key] = value
+print(filtered_food_dict)
+
+" type="text">
+ 
+
+
+
+food_list = ['Whole wheat bread', 'pita pockets', 'English muffins', 'Whole-grain',
+             'flour tortillas']
+
+
+
+filtered_food_list = []
+for food in food_list:
+    if 'Whole' in food:
+        filtered_food_list.append(food)
+print(filtered_food_list)
+
+
+
+filtered_food_list = [food for food in food_list if 'Whole' in food]
+filtered_food_list
+
+
+
+ 
+
+
+
+food_dictionary = {1: 'Whole',
+2: 'Whole Wheat',
+3: 'Bread'}
+
+filtered_food_dict = {}
+for key,value in food_dictionary.items():
+    if 'Whole' in value:
+        filtered_food_dict[key] = value
+print(filtered_food_dict)
+
+</textarea>
                     <a class="btn btn-default btn-xs" href="/list-comprehension.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
                 <h2><a href="/list-flattening.html">Flattening a list of lists</a></h2>
-                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+                <div class="summary"><textarea class="codecopy" id="myInput" text="
+l = [[1,2,3,4],['a','b','c','d']]
+
+# List compreshension
+flat_list = [item for sublist in l for item in sublist]
+print(flat_list)
+
+" type="text">
+l = [[1,2,3,4],['a','b','c','d']]
+
+# List compreshension
+flat_list = [item for sublist in l for item in sublist]
+print(flat_list)
+
+</textarea><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Key Ideas</p>
 <ul>
@@ -112,7 +198,47 @@ stack            </a>
             <hr/>
             <article>
                 <h2><a href="/combining-dictionaries.html">Combining Dictionaries</a></h2>
-                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+                <div class="summary"><textarea class="codecopy" id="myInput" text="
+# Define dictionaries
+dict1 = {'a': 10, 'b': 8} 
+dict2 = {'d': 6, 'c': 4} 
+dict3  = {}
+
+# Update final dictionar with values from the prior two
+dict3.update(dict1)
+dict3.update(dict2)
+print(dict3)
+
+
+
+dict1 = {'a': 10, 'b': 8} 
+dict2 = {'a': 6, 'c': 4} 
+dict3  = {}
+dict3.update(dict1)
+dict3.update(dict2)
+print(dict3)
+
+" type="text">
+# Define dictionaries
+dict1 = {'a': 10, 'b': 8} 
+dict2 = {'d': 6, 'c': 4} 
+dict3  = {}
+
+# Update final dictionar with values from the prior two
+dict3.update(dict1)
+dict3.update(dict2)
+print(dict3)
+
+
+
+dict1 = {'a': 10, 'b': 8} 
+dict2 = {'a': 6, 'c': 4} 
+dict3  = {}
+dict3.update(dict1)
+dict3.update(dict2)
+print(dict3)
+
+</textarea><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="How-to-combine-multiple-dictionaries?">How to combine multiple dictionaries?</h3>
 </div>
@@ -126,7 +252,39 @@ stack            </a>
             <hr/>
             <article>
                 <h2><a href="/list-copying.html">Copying a List</a></h2>
-                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+                <div class="summary"><textarea class="codecopy" id="myInput" text="
+# Define dictionaries
+mylist = [1,2,3,4]
+new_list = mylist.copy()
+
+
+
+mylist_incorrect = mylist
+print(mylist_incorrect)
+
+
+
+mylist_incorrect[1] = 10
+print(mylist_incorrect)
+print(mylist)
+
+" type="text">
+# Define dictionaries
+mylist = [1,2,3,4]
+new_list = mylist.copy()
+
+
+
+mylist_incorrect = mylist
+print(mylist_incorrect)
+
+
+
+mylist_incorrect[1] = 10
+print(mylist_incorrect)
+print(mylist)
+
+</textarea><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Key Ideas</p>
 <ul>
@@ -147,7 +305,77 @@ stack            </a>
             <hr/>
             <article>
                 <h2><a href="/list-slicing-and-indexing.html">Python Slicing and Indexing</a></h2>
-                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+                <div class="summary"><textarea class="codecopy" id="myInput" text="
+a = [0, 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14]
+
+
+
+start = 1
+stop = 8
+print(a[start:stop] )
+
+
+
+print(a[start:])
+
+
+
+print(a[:stop])
+
+
+
+print(a[:])
+
+
+
+print(a[-3:])
+
+
+
+step = 2
+print(a[start:stop:step])
+
+
+
+step = -1
+print(a[::step])
+
+" type="text">
+a = [0, 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14]
+
+
+
+start = 1
+stop = 8
+print(a[start:stop] )
+
+
+
+print(a[start:])
+
+
+
+print(a[:stop])
+
+
+
+print(a[:])
+
+
+
+print(a[-3:])
+
+
+
+step = 2
+print(a[start:stop:step])
+
+
+
+step = -1
+print(a[::step])
+
+</textarea><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Key Ideas</p>
 <ul>
@@ -156,16 +384,21 @@ stack            </a>
 <p>Questions</p>
 <ul>
 <li>How do you access items in a list?</li>
-<li>How do you reverse a list in python?</li>
-<li>How can you skip items at regular intervals in a list?
-Many times you will need to access different parts of a <code class="code-class">list</code>
                     <a class="btn btn-default btn-xs" href="/list-slicing-and-indexing.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
                 <h2><a href="/nested-directories.html">Creating Nested Directories</a></h2>
-                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+                <div class="summary"><textarea class="codecopy" id="myInput" text="
+from pathlib import Path
+Path('folder1/folder2').mkdir(parents=True, exist_ok=True)
+
+" type="text">
+from pathlib import Path
+Path('folder1/folder2').mkdir(parents=True, exist_ok=True)
+
+</textarea><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="How-can-you-safely-create-a-nested-directory?">How can you safely create a nested directory?</h3>
 </div>
@@ -179,7 +412,7 @@ Many times you will need to access different parts of a <code class="code-class"
             <hr/>
 
         </div>
-        <div class="col-sm-3" id="sidebar">
+        <div class="col-md-3" id="sidebar">
             <aside>
 <!--Article References for Stack-->
 <!--Article References for Python-->
@@ -214,7 +447,7 @@ Many times you will need to access different parts of a <code class="code-class"
 <!-- End Content Container -->
 
 <footer>
-   <div class="container">
+   <div class="container-fluid">
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2019 Bob Minnich

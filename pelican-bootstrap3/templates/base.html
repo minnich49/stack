@@ -117,13 +117,19 @@
   {% endif %}
             <script>
                     function copyFunction() {
-                      const copyText = document.getElementById("myInput").textContent;
-                      const textArea = document.createElement('textarea');
-                      textArea.textContent = copyText;
-                      textArea.select();
-                      document.execCommand("copy");
+                      var copyText = document.getElementById("myInput").textContent;
+                        
+                        var dummy = document.createElement("textarea");
+                        // to avoid breaking orgain page when copying more words
+                        // cant copy when adding below this code
+                        // dummy.style.display = 'none'
+                        document.body.appendChild(dummy);
+                        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+                        dummy.value = copyText;
+                        dummy.select();
+                        document.execCommand("copy");
+                        document.body.removeChild(dummy);
                     }
-
                     document.getElementById('button').addEventListener('click', copyFunction);
             </script>
 
@@ -212,7 +218,7 @@
         <div class="{{ sidebar_left_class }}"id="sidebar_left">
             <aside>
                 {% if not HIDE_SIDEBAR %}
-                    {% include 'includes/taglist.html' %}
+                    {% include 'includes/sidebar_left.html' %}
                 {% endif %}
             </aside>
         </div>

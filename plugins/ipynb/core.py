@@ -152,7 +152,7 @@ def get_html_from_filepath(filepath, start=0, end=None, preprocessors=[], templa
         new_div['class']="codecopy"        
         new_div.insert(0, NavigableString(output))
 
-        soup.insert(-1, new_div)
+        soup.insert(0, new_div)
         content = soup.decode(formatter=None)
     return content, info
 

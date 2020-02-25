@@ -23,3 +23,12 @@ make regenerate
 
 https://help.farbox.com/pygments.html
 
+
+# Show print settings 
+pelican --print-settings
+
+# Debugging 
+pelican -D content/
+
+# Auto Reload
+pelican --autoreload --listen

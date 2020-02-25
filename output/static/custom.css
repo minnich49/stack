@@ -122,3 +122,9 @@ textarea {
     right: 3px;
     
 }
+
+/* # Set Container Width */
+.container-fluid {
+    width: 80%;
+}
+
