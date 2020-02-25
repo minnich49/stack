@@ -1,0 +1,25 @@
+Notes
+article.html has the layout of each article
+
+# Kick off regeneration
+make regenerate
+
+# Launch Server
+cd output/
+python -m http.server 8800
+
+#Manually generate output
+pelican -s pelicanconf.py -o output content
+
+
+
+source env/bin/activate
+cd output/
+python -m http.server 8800
+
+source env/bin/activate
+make regenerate
+
+
+https://help.farbox.com/pygments.html
+

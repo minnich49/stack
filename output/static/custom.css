@@ -1,32 +1,124 @@
-/* 
-.navbar-default {
-    background-color: #FF5733;
-    border-color: transparent;
+:root {
+  --sidebar-border: #4b8bbe;
+  --sidebar-border-stack: #f48024;
+  --sidebar-border-question: #FFD43B;
 }
 
 
-#sidebar{
-    background-color: #FF5733;
-    border-color: transparent;
-}
- */
+/* Sidebar */
 
-/* Cell numbers */
-.prompt.input_prompt {
-   display: none;
+#sidebar .list-group-mine .list-group-item {
+  background-color: #f7f7f7;
+  border-top: 1px solid var(--sidebar-border);
+  border-left: 1px solid var(--sidebar-border);
+  border-right: 1px solid var(--sidebar-border);
+    border-bottom: 1px solid var(--sidebar-border);
+
+}
+#sidebar #stack-list.list-group-item {
+  background-color: #f7f7f7;
+  border-top: 1px solid var(--sidebar-border-stack);
+  border-left: 1px solid var(--sidebar-border-stack);
+  border-right: 1px solid var(--sidebar-border-stack);
+    border-bottom: 1px solid var(--sidebar-border-stack);
+
+}
+#sidebar #question-list.list-group-item {
+  background-color: #f7f7f7;
+  border-top: 1px solid var(--sidebar-border-question);
+  border-left: 1px solid var(--sidebar-border-question);
+  border-right: 1px solid var(--sidebar-border-question);
+    border-bottom: 1px solid var(--sidebar-border-question);
+
 }
 
-/* # Cell sizing */
+.python-logo{
+  float: left;
+  width: 25px;
+  height: 25px;
+  background: None;
+}
+
+.python-header {
+  position: relative;
+  top: 0px;
+  left: 10px;
+    padding-bottom: 0px;
+  font-size: 18px;
+}
+.stack-header {
+  position: relative;
+  top: 0px;
+  left: 10px;
+    padding-bottom: 0px;
+  font-size: 18px;
+    
+}
+.question-header {
+  position: relative;
+  top: 0px;
+  left: 10px;
+    padding-bottom: 0px;
+  font-size: 18px;
+    
+}
+
 .cell.border-box-sizing.code_cell.rendered{
-        width: 75%;
+        width: 85%;
+  word-wrap: break-word;
+    padding-bottom: 0px;
 
 }
-
-/* # output execution */
-.prompt.output_prompt{
-   display: none;
+/* Line-height contorls the distance between cells */
+.cell.border-box-sizing.text_cell.rendered{
+        width: 85%;
+  word-wrap: break-word;
+    padding-bottom: 0px;
+    padding-top: 20px;
+    font-size:15px;
+    line-height: 0;
+}
+div.inner_cell{
+    padding-bottom: 0px;
 }
 
-.output_text.output_subarea.output_execute_result{
-   display: none;
+.text_cell_render .border-box-sizing .rendered_html{
+    padding-bottom: 0px;
+}
+.innner-cell{
+    padding-bottom: 0px;
+}
+.code-class{
+    background-color: #f8f8f8;
+    color: #008000;
+}
+
+/* Output Area for the Code */
+.output_area {
+    background-color: #f8f8f8;
+    color: #008000;
+
+}
+codecopy {
+  position: absolute;
+  left: -100%;
+    display:none;
+}
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  height: 0px;
+  width: 0px;
+  resize: none;
+  border: none; 
+    
+}
+            
+
+/* Sizing the Question Mark */
+.glyphicon-center {
+    top: 3px;
+    right: 3px;
+    
 }

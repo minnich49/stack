@@ -19,23 +19,11 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
-
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
-
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 THEME = "pelican-bootstrap3"
-# PLUGIN_PATHS = ['pelican-plugins']
-# PLUGINS = ['pelican-ipynb']
 
 IGNORE_FILES = [".ipynb_checkpoints"]  
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
@@ -43,16 +31,18 @@ MARKUP = ('md', 'ipynb')
 
 PLUGIN_PATHS = ['pelican-plugins/i18n_subsites','./plugins']
 PLUGINS = ['i18n_subsites','ipynb.markup']
-PYGMENTS_STYLE = 'colorful'
+PYGMENTS_STYLE = 'default'
 BOOTSTRAP_THEME = 'Simplex'
+BOOTSTRAP_THEME = 'Lumen'
 
-
+BOOTSTRAP_FLUID = True
 # Tell Pelican to add files from 'extra' to the output dir
 
 CUSTOM_CSS = 'static/custom.css'
 # Tell Pelican to add files from 'extra' to the output dir
 STATIC_PATHS = [
-  'extra/custom.css'
+  'extra/custom.css',
+    'images'
 ]
 
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
@@ -66,3 +56,8 @@ IGNORE_FILES = [".ipynb_checkpoints"]
 IPYNB_USE_METACELL = True
 
 IPYNB_FIX_CSS = True
+
+DISPLAY_BREADCRUMBS = False
+
+DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_TAGS_ON_SIDEBAR = False

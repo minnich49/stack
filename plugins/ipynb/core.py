@@ -121,7 +121,39 @@ def get_html_from_filepath(filepath, start=0, end=None, preprocessors=[], templa
 
     config.CSSHTMLHeaderPreprocessor.highlight_class = " .highlight pre "
     content, info = exporter.from_filename(filepath)
+    from bs4 import  NavigableString
 
+    if BeautifulSoup:
+        soup = BeautifulSoup(content, 'html.parser')
+        for i in soup.findAll('div', {'class': 'prompt input_prompt'}):
+            i.decompose()
+        for i in soup.findAll('div', {'class': 'prompt output_prompt'}):
+            i.decompose()
+        for i in soup.findAll('div', {'class': 'prompt'}):
+            i.decompose()
+        for i in soup.findAll('a', {'class': 'anchor-link'}):
+            i.decompose()
+        
+        for i in soup.findAll('code'):
+            i.attrs['class'] = 'code-class'
+        content = soup.decode(formatter=None)
+        #     url = 'http://localhost:8800/list-comprehension.html'
+        #     page = requests.get(url)
+        #     soup = BeautifulSoup(page.content, 'html.parser')
+
+        soup = BeautifulSoup(content, 'html.parser')
+        pre_tags = soup.find_all('div',{'class':'input_area'})
+        input_areas = [i for i in pre_tags if i['class'][0] == 'input_area' ]
+        output = '\r\n'.join([i.get_text() for i in input_areas])
+        new_div = soup.new_tag('textarea')
+        new_div['text']=output
+        new_div['id'] = "myInput"
+        new_div['type']="text"
+        new_div['class']="codecopy"        
+        new_div.insert(0, NavigableString(output))
+
+        soup.insert(-1, new_div)
+        content = soup.decode(formatter=None)
     return content, info
 
 

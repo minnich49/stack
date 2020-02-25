@@ -1,20 +1,83 @@
-<!-- Sidebar -->
-<section class="well well-sm">
-  <ul class="list-group list-group-flush">
-    {% include 'includes/sidebar/optional_top.html' ignore missing %}
-    {% include 'includes/sidebar/social.html' %}
-    {% include 'includes/sidebar/recent_posts.html' %}
-    {% include 'includes/sidebar/categories.html' %}
-    {% include 'includes/sidebar/tag_cloud.html' %}
-    {% include 'includes/sidebar/show_source.html' %}
-    {% include 'includes/sidebar/series.html' %}
-    {% include 'includes/sidebar/github.html' %}
-    {% include 'includes/sidebar/twitter_timeline.html' %}
-    {% include 'includes/sidebar/links.html' %}
-    {% include 'includes/sidebar/authors.html' %}
-    {% include 'includes/sidebar/images.html' %}
-    {% include 'includes/sidebar/archive.html' %}
-    {% include 'includes/sidebar/optional_bottom.html' ignore missing %}
-  </ul>
-</section>
+    {% macro sentence_case(text) %}
+        {{ text[0]|upper}}{{text[1:] }}
+    {% endmacro %}
+<!--Article References for Stack-->
+    {% if article and article.references %}
+    <div class="sidebar-header">
+          <img  class = "python-logo"  src="images/database.png" alt="logo" />
+    <h3 class  = 'stack-header'>Stack Overflow Questions </h3>
+    </div>
+
+    <ul class="list-group list-group-mine">
+      {% for reference in article.references.split(',') %}
+          {% set another = reference.split('/')|last %}
+          {% set another2 = another.split('-')|join(' ') %}
+            {% set another3 = sentence_case(another2) %}
+
+          <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center" id ="stack-list">
+            <a href="{{ reference }}"> {{another3}}</a></li>
+          </li>
+
+      {% endfor %}
+    </ul>
+    {% endif %}
+<!--Article References for Python-->
+    {% if article and article.references_python %}
+    <div class="sidebar-header">
+      <img  class = "python-logo"  src="images/python_logo.png" alt="logo" />
+        <h3 class = "python-header" > Python References </h3>
+    </div>
+
+    <ul class="list-group list-group-mine">
+      {%set names = article.reference_names_python.split(',') %}
+
+      {% for reference in article.references_python.split(',') %}
+          {% set another = reference.split('/')|last %}
+          {% set another2 = another.split('.')|first %}
+          <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center ">
+            <a href="{{ reference }}"> {{names[loop.index0]}}</a></li>
+          </li>
+
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+<!--Related Questions-->
+	
+
+    {% if article and article.related_questions %}
+    <div class="sidebar-header">
+    <h3 class = "question-header"><i class="glyphicon glyphicon-question-sign glyphicon-center"></i>      Related Questions</h3>
+</div>
+
+    <ul class="list-group list-group-mine">
+
+      {% for question in article.related_questions.split(',') %}
+          <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center " id ="question-list">
+            {{question}}</li>
+          </li>
+
+      {% endfor %}
+    </ul>
+    {% endif %}
+<!--<section class="well well-sm">-->
+  <!--<ul class="list-group list-group-flush">-->
+    <!--{% include 'includes/sidebar/optional_top.html' ignore missing %}-->
+    <!--{% include 'includes/sidebar/social.html' %}-->
+    <!--{% include 'includes/sidebar/recent_posts.html' %}-->
+    <!--{% include 'includes/sidebar/categories.html' %}-->
+    <!--{% include 'includes/sidebar/tag_cloud.html' %}-->
+    <!--{% include 'includes/sidebar/show_source.html' %}-->
+    <!--{% include 'includes/sidebar/series.html' %}-->
+    <!--{% include 'includes/sidebar/github.html' %}-->
+    <!--{% include 'includes/sidebar/twitter_timeline.html' %}-->
+    <!--{% include 'includes/sidebar/links.html' %}-->
+    <!--{% include 'includes/sidebar/authors.html' %}-->
+    <!--{% include 'includes/sidebar/images.html' %}-->
+    <!--{% include 'includes/sidebar/archive.html' %}-->
+    <!--{% include 'includes/sidebar/optional_bottom.html' ignore missing %}-->
+
+
+  <!--</ul>-->
+<!--</section>-->
 <!-- End Sidebar -->

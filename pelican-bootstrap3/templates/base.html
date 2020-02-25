@@ -115,6 +115,17 @@
   {% if EXTRA_HEADER %}
   {{ EXTRA_HEADER }}
   {% endif %}
+            <script>
+                    function copyFunction() {
+                      const copyText = document.getElementById("myInput").textContent;
+                      const textArea = document.createElement('textarea');
+                      textArea.textContent = copyText;
+                      textArea.select();
+                      document.execCommand("copy");
+                    }
+
+                    document.getElementById('button').addEventListener('click', copyFunction);
+            </script>
 
 </head>
 <body>
@@ -189,13 +200,24 @@
 {% if PADDED_SINGLE_COLUMN_STYLE %}
     {% set content_class='col-md-8 col-md-offset-2' %}
 {% elif not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
-    {% set content_class='col-sm-9' + (' col-sm-push-3' if SIDEBAR_ON_LEFT else '') %}
-    {% set sidebar_class='col-sm-3' + (' col-sm-pull-9' if SIDEBAR_ON_LEFT else '') %}
+    {% set content_class='col-md-7' %}
+    {% set sidebar_class='col-md-3' %}
+    {% set sidebar_left_class='col-md-2' %}
 {% else %}
     {% set content_class='col-lg-12' %}
 {% endif %}
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row">
+        {% if sidebar_class %}
+        <div class="{{ sidebar_left_class }}"id="sidebar_left">
+            <aside>
+                {% if not HIDE_SIDEBAR %}
+                    {% include 'includes/taglist.html' %}
+                {% endif %}
+            </aside>
+        </div>
+        {% endif %}
+        
         <div class="{{ content_class }}">
             {% block breadcrumbs %}{% endblock %}
             {% block content %}{% endblock %}
@@ -242,6 +264,7 @@
     {% include 'includes/liquid_tags_nb_footer.html' %}
 {% endif %}
 
+    
 {% block scripts %}{% endblock %}
 </body>
 </html>

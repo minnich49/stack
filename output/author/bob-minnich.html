@@ -22,14 +22,25 @@
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="/theme/css/bootstrap.Simplex.min.css" type="text/css"/>
+        <link rel="stylesheet" href="/theme/css/bootstrap.Lumen.min.css" type="text/css"/>
     <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="/theme/css/pygments/colorful.css" rel="stylesheet">
+    <link href="/theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
         <link href="/static/custom.css" rel="stylesheet">
 
 
+            <script>
+                    function copyFunction() {
+                      const copyText = document.getElementById("myInput").textContent;
+                      const textArea = document.createElement('textarea');
+                      textArea.textContent = copyText;
+                      textArea.select();
+                      document.execCommand("copy");
+                    }
+
+                    document.getElementById('button').addEventListener('click', copyFunction);
+            </script>
 
 </head>
 <body>
@@ -37,23 +48,11 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <a href="/" class="navbar-brand">
 stack            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li >
-                            <a href="/category/pyhton.html">Pyhton</a>
-                        </li>
-                        <li >
-                            <a href="/category/review.html">Review</a>
-                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
             </ul>
@@ -68,11 +67,113 @@ stack            </a>
 <!-- Content Container -->
 <div class="container">
     <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-2"id="sidebar_left">
+        </div>
+        
+        <div class="col-sm-8">
             <article>
-                <h2><a href="/my-first-review.html">My First Review</a></h2>
-                <div class="summary"><p>Following is a review of my favorite mechanical keyboard.</p>
-                    <a class="btn btn-default btn-xs" href="/my-first-review.html">more ...</a>
+                <h2><a href="/list-comprehension.html">Explaning Python's List Comprehension</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Key Ideas</p>
+<ul>
+<li>List Comprehensions can be used to create more condensed for loops</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+                    <a class="btn btn-default btn-xs" href="/list-comprehension.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/list-flattening.html">Flattening a list of lists</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Key Ideas</p>
+<ul>
+<li>Lists are used to store items, you need to be careful when copying them</li>
+</ul>
+<p>Questions</p>
+<ul>
+<li>How do you combine a list of lists?</li>
+<li>How do you flatten a list of lists</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+                    <a class="btn btn-default btn-xs" href="/list-flattening.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/combining-dictionaries.html">Combining Dictionaries</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-to-combine-multiple-dictionaries?">How to combine multiple dictionaries?</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+                    <a class="btn btn-default btn-xs" href="/combining-dictionaries.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/list-copying.html">Copying a List</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Key Ideas</p>
+<ul>
+<li>Lists are used to store items, you need to be careful when copying them</li>
+</ul>
+<p>Questions</p>
+<ul>
+<li>Why does changing an item in one list, impact other lists?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+                    <a class="btn btn-default btn-xs" href="/list-copying.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/list-slicing-and-indexing.html">Python Slicing and Indexing</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Key Ideas</p>
+<ul>
+<li>Lists are used to store items, Slicing and Indexing allows you to access those items</li>
+</ul>
+<p>Questions</p>
+<ul>
+<li>How do you access items in a list?</li>
+<li>How do you reverse a list in python?</li>
+<li>How can you skip items at regular intervals in a list?
+Many times you will need to access different parts of a <code class="code-class">list</code>
+                    <a class="btn btn-default btn-xs" href="/list-slicing-and-indexing.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/nested-directories.html">Creating Nested Directories</a></h2>
+                <div class="summary"><div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-can-you-safely-create-a-nested-directory?">How can you safely create a nested directory?</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+                    <a class="btn btn-default btn-xs" href="/nested-directories.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -80,41 +181,32 @@ stack            </a>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-<!-- Sidebar -->
-<section class="well well-sm">
-  <ul class="list-group list-group-flush">
+<!--Article References for Stack-->
+<!--Article References for Python-->
 
-<!-- Sidebar/Social -->
-<li class="list-group-item">
-  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-  <ul class="list-group" id="social">
-    <li class="list-group-item"><a href="#"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg"></i> You can add links in your config file</a></li>
-    <li class="list-group-item"><a href="#"><i class="fa fa-another-social-link-square fa-lg"></i> Another social link</a></li>
-  </ul>
-</li>
-<!-- End Sidebar/Social -->
+<!--Related Questions-->
+	
 
-<!-- Sidebar/Links -->
-<li class="list-group-item">
-  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-  <ul class="list-group" id="links">
-    <li class="list-group-item">
-      <a href="http://getpelican.com/" target="_blank">Pelican</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://python.org/" target="_blank">Python.org</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
-    </li>
-    <li class="list-group-item">
-      <a href="#" target="_blank">You can modify those links in your config file</a>
-    </li>
-  </ul>
-</li>
-<!-- End Sidebar/Links -->
-  </ul>
-</section>
+<!--<section class="well well-sm">-->
+  <!--<ul class="list-group list-group-flush">-->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+
+
+  <!--</ul>-->
+<!--</section>-->
 <!-- End Sidebar -->            </aside>
         </div>
     </div>
@@ -125,7 +217,7 @@ stack            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2010 Bob Minnich
+         <div class="col-xs-10">&copy; 2019 Bob Minnich
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
@@ -144,5 +236,6 @@ stack            </a>
 
 
 
+    
 </body>
 </html>
